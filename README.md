@@ -4,7 +4,7 @@ Rendered          |  Actual
 :-------------------------:|:-------------------------:
 ![](./docs/rendergif.gif)  |  ![](./docs/cropall2.gif)
 
-This tool allows you to enter any video of a person speaking in sign language, and applies the motion to a 3d mesh  
+This tool prototype allows you to enter any video of a person speaking in sign language, and applies the motion to a 3d mesh  
 
 ## Steps to use this tool:
 1. Clone this repository: 
@@ -36,6 +36,16 @@ git clone https://github.com/vchoutas/smplify-x.git`
 ```
 
 8. Create the following directories inside smplify-x: MODEL_FOLDER, DATA_FOLDER,  OUTPUT_FOLDER, V_POSER_FOLDER. And inside DATA_FOLDER create two more directories: images, keypoints
+```
+cd smplify-x
+mkdir MODEL_FOLDER
+mkdir OUTPUT_FOLDER
+mkdir V_POSER_FOLDER
+mkdir DATA_FOLDER
+cd DATA_FOLDER
+mkdir images
+mkdir keypoints
+```
 -*Note* the names of the folders must be identical to the names above, or the script fails.
 
 9. Copy the smplx folder and place it in MODEL_FOLDER. Copy the **contents** of VPoser and place it in V_POSER_FOLDER. The directory structure should be looking something like this.
@@ -66,4 +76,4 @@ signlanguage-motion-transfer
 +---smplify-x
 ``` 
 
-11. Open a terminal 
+11. The CLI tool has two modes: openpose and smplx. 
