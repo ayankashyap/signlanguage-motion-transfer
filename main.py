@@ -51,7 +51,7 @@ subparsers = parser.add_subparsers(help="commands", dest='command')
 #OPENPOSE COMMANDS
 
 openpose_parser = subparsers.add_parser('openpose', help='openpose commands')
-openpose_parser.add_argument('--video',type=file_path, help='path to the video', required=True)
+openpose_parser.add_argument('--video',  help='path to the video', required=True)
 openpose_parser.add_argument('--outpose', action='store_true', help=' store video with pose overlay')
 
 #SMPLX COMMANDS
@@ -65,10 +65,11 @@ group.add_argument('--render', action='store_true')
 args = parser.parse_args()
 if args.command == 'openpose':
     video_to_frames(input_loc=args.video, output_loc='.\smplify-x\DATA_FOLDER\images')
+    os.chdir('openpose')
     if args.outpose:
-        os.system(f'cmd /c ".\openpose\\bin\OpenPoseDemo.exe --video {args.video} --face --hand --write_json .\smplify-x\DATA_FOLDER\keypoints --write_video .\pose.avi" ')
+        os.system(f'cmd /c ".\\bin\OpenPoseDemo.exe --video {args.video} --face --hand --write_json .\..\smplify-x\DATA_FOLDER\keypoints --write_video .\pose.avi" ')
     else:
-        os.system(f'cmd /c ".\openpose\\bin\OpenPoseDemo.exe --video {args.video} --face --hand --write_json .\smplify-x\DATA_FOLDER\keypoints" ')
+        os.system(f'cmd /c ".\\bin\OpenPoseDemo.exe --video {args.video} --face --hand --write_json .\..\smplify-x\DATA_FOLDER\keypoints" ')
 
 else:
     if args.fit:
