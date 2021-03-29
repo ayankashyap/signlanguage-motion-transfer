@@ -76,9 +76,6 @@ signlanguage-motion-transfer
 +---smplify-x
 ``` 
 
-<<<<<<< HEAD
-11. Open a terminal to use the cli. Make sure you have activated your environment. 
-=======
 ### You are now all setup to use the CLI !
 
 ## Using the tool  
@@ -103,4 +100,3 @@ python main.py smplx --fit
 python main.py smplx --render
 ```
 6. If you have Blender installed you can import the .obj files into blender, and use shapekeys to interpolate between them. The smoothness of the animataion depends on the number of frames you processed. The gif you see at the top uses only 6 frames! .
->>>>>>> ab34846f4ae2208e74c702a4f086bae7d39986a9
