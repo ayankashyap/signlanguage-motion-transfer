@@ -6,7 +6,7 @@ Rendered          |  Actual
 
 This tool prototype allows you to enter any video of a person speaking in sign language, and applies the motion to a 3d mesh  
 
-## Steps to use this tool:
+## Setting up! :
 1. Clone this repository: 
 ```
 git clone https://github.com/ayankashyap/signlanguage-motion-transfer.git`
@@ -76,4 +76,26 @@ signlanguage-motion-transfer
 +---smplify-x
 ``` 
 
-11. The CLI tool has two modes: openpose and smplx. 
+### You are now all setup to use the CLI !
+
+## Using the tool  
+The CLI tool has two modes: openpose and smplx. The openpose mode allows you to extract facial, hand and body joint keypoints at each frame of the video, and the smplx mode allows you to fit and render a 3d mesh to that pose. The workflow is as follows:
+1. Place the video you want to analyze inside the **signlanguage-motion-transfer** directory.
+2. Open a terminal and make sure you are inside the **signlanguage-motion-transfer** directory and have the python environment activated. Then to extract the pose from a video, use the following commands:
+-*Note* make sure the video isn't more than 2 seconds. The tool is meant to process one sign motion at a time. This is a very GPU intensive task, and processing one frame takes about 2 minutes on a mid tier GPU, so plan accordingly
+```
+python main.py openpose --video <name-of-your-video.mp4>
+```
+3. If you also want a pose overlay on the video, then add the following flag in the command. The pose overlay file will be created inside the current directory:
+```
+python main.py openpose --video <name-of-your-video.mp4> --outpose 
+```
+4. Now that you have your pose extracted, you need to run the mesh fitting algorithm using the smplx mode. To do this, run the following command.
+```
+python main.py smplx --fit
+```
+5. After the fitting is done, the resulting 3d meshes are stored inside smplify-x/OUTPUT_FOLDER/meshes. You can open that file using any 3d graphics software like blender, or if you just want to view them in a renderer, you can run the following command:
+```
+python main.py smplx --render
+```
+6. If you have Blender installed you can import the .obj files into blender, and use shapekeys to interpolate between them. The smoothness of the animataion depends on the number of frames you processed. The gif you see at the top uses only 6 frames! .
