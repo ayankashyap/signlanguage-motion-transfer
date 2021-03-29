@@ -80,6 +80,7 @@ signlanguage-motion-transfer
 
 ## Using the tool  
 The CLI tool has two modes: openpose and smplx. The openpose mode allows you to extract facial, hand and body joint keypoints at each frame of the video, and the smplx mode allows you to fit and render a 3d mesh to that pose. The workflow is as follows:
+-*Note* make sure to do the pose estimation first as the mesh fitting relies on the 2d pose coordinates.
 1. Place the video you want to analyze inside the **signlanguage-motion-transfer** directory.
 2. Open a terminal and make sure you are inside the **signlanguage-motion-transfer** directory and have the python environment activated. Then to extract the pose from a video, use the following commands:
 -*Note* make sure the video isn't more than 2 seconds. The tool is meant to process one sign motion at a time. This is a very GPU intensive task, and processing one frame takes about 2 minutes on a mid tier GPU, so plan accordingly
