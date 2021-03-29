@@ -66,4 +66,4 @@ signlanguage-motion-transfer
 +---smplify-x
 ``` 
 
-11. Open a terminal 
+11. Open a terminal to use the cli. Make sure you have activated your environment. 

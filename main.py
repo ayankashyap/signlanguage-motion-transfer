@@ -67,12 +67,12 @@ if args.command == 'openpose':
     video_to_frames(input_loc=args.video, output_loc='.\smplify-x\DATA_FOLDER\images')
     os.chdir('openpose')
     if args.outpose:
-        os.system(f'cmd /c ".\\bin\OpenPoseDemo.exe --video {args.video} --face --hand --write_json .\..\smplify-x\DATA_FOLDER\keypoints --write_video .\pose.avi" ')
+        os.system(f'cmd /c ".\\bin\OpenPoseDemo.exe --video .\..\\{args.video} --face --hand --write_json .\..\smplify-x\DATA_FOLDER\keypoints --write_video .\\pose.avi" ')
     else:
-        os.system(f'cmd /c ".\\bin\OpenPoseDemo.exe --video {args.video} --face --hand --write_json .\..\smplify-x\DATA_FOLDER\keypoints" ')
+        os.system(f'cmd /c ".\\bin\OpenPoseDemo.exe --video .\..\\{args.video} --face --hand --write_json .\..\smplify-x\DATA_FOLDER\keypoints" ')
 
 else:
     if args.fit:
-        os.system('cmd /c "python smplify-x\smplifyx\main.py --config cfg_files\\fit_smplx.yaml --data_folder DATA_FOLDER --output_folder OUTPUT_FOLDER --model_folder MODEL_FOLDER --vposer_ckpt VPOSER_FOLDER"')
+        os.system('cmd /c "python smplify-x\smplifyx\main.py --config smplify-x\cfg_files\\fit_smplx.yaml --data_folder smplify-x\DATA_FOLDER --output_folder smplify-x\OUTPUT_FOLDER --model_folder smplify-x\MODEL_FOLDER --vposer_ckpt smplify-x\VPOSER_FOLDER"')
     elif args.render:
-        os.system('cmd /c "python smplify-x\smplifyx\\render_results.py --mesh_fns OUTPUT_MESH_FOLDER"')
+        os.system('cmd /c "python smplify-x\smplifyx\\render_results.py --mesh_fns smplify-x\OUTPUT_FOLDER\meshes"')
