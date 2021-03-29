@@ -67,7 +67,7 @@ if args.command == 'openpose':
     video_to_frames(input_loc=args.video, output_loc='.\smplify-x\DATA_FOLDER\images')
     os.chdir('openpose')
     if args.outpose:
-        os.system(f'cmd /c ".\\bin\OpenPoseDemo.exe --video .\..\\{args.video} --face --hand --write_json .\..\smplify-x\DATA_FOLDER\keypoints --write_video .\\pose.avi" ')
+        os.system(f'cmd /c ".\\bin\OpenPoseDemo.exe --video .\..\\{args.video} --face --hand --write_json .\..\smplify-x\DATA_FOLDER\keypoints --write_video .\..\pose.avi" ')
     else:
         os.system(f'cmd /c ".\\bin\OpenPoseDemo.exe --video .\..\\{args.video} --face --hand --write_json .\..\smplify-x\DATA_FOLDER\keypoints" ')
 
